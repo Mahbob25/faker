@@ -24,8 +24,16 @@ const App = () => {
   const [config, setConfig] = useState(DEFAULT_CONFIG);
 
   const [messages, setMessages] = useState([
+    {
+      id: 13,
+      type: 'shared-post',
+      postUsername: config.username,
+      postSubtitle: '🇾🇪 Pride Yemeni👑',
+      postImage: '/assets/cat.jpeg',
+      postUserAvatar: '/assets/a43_c.jpg',
+      isOutgoing: false
+    },
     { id: 11, type: 'outgoing', text: 'اووووووو', isRTL: true, replyTo: { sender: 'him', text: 'كيفك يا حياتوووو' } },
-
   ]);
 
   const [senderSide, setSenderSide] = useState('outgoing');
