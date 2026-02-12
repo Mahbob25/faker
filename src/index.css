@@ -23,7 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow: hidden;
+  margin: 0;
 }
 
 #root {
@@ -32,16 +32,26 @@ body {
   justify-content: center;
 }
 
-/* Simulate the iPhone screen */
+/* Simulate the iPhone screen on desktop, full screen on mobile */
 .iphone-frame {
-  width: 393px;
-  height: 852px;
+  width: 100%;
+  max-width: 430px;
+  height: 100vh;
+  max-height: 100dvh;
   background-color: var(--ig-background);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 440px) {
+  .iphone-frame {
+    height: 852px;
+    max-height: 852px;
+    border-radius: 40px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* Status Bar */

@@ -37,9 +37,25 @@ const App = () => {
   const chatRef = useRef(null);
 
   useEffect(() => {
-    if (chatRef.current) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    const scrollToBottom = () => {
+      if (chatRef.current) {
+        chatRef.current.scrollTop = chatRef.current.scrollHeight;
+      }
+    };
+    scrollToBottom();
+
+    // Also scroll on focus to handle mobile keyboard
+    const input = document.querySelector('input');
+    if (input) {
+      input.addEventListener('focus', () => {
+        setTimeout(scrollToBottom, 300);
+      });
     }
+    return () => {
+      if (input) {
+        input.removeEventListener('focus', scrollToBottom);
+      }
+    };
   }, [messages]);
 
   const handleSend = (text) => {
@@ -85,65 +101,6 @@ const App = () => {
         </div>
 
         <InputBar onSend={handleSend} />
-      </div>
-
-      <div className="controls-panel">
-        <h2 style={{ marginBottom: '20px', fontSize: '18px' }}>Chat Config</h2>
-
-        <div style={{ marginBottom: '16px' }}>
-          <label>Username</label>
-          <input
-            type="text"
-            value={config.username}
-            onChange={(e) => setConfig({ ...config, username: e.target.value })}
-          />
-        </div>
-
-        <div style={{ marginBottom: '16px' }}>
-          <label>Subtitle</label>
-          <input
-            type="text"
-            value={config.subtitle}
-            onChange={(e) => setConfig({ ...config, subtitle: e.target.value })}
-          />
-        </div>
-
-        <div style={{ marginBottom: '16px' }}>
-          <label>Profile Image URL</label>
-          <input
-            type="text"
-            value={config.avatarUrl}
-            onChange={(e) => setConfig({ ...config, avatarUrl: e.target.value })}
-          />
-        </div>
-
-        <div style={{ marginBottom: '16px' }}>
-          <label>Sender Side</label>
-          <select
-            value={senderSide}
-            onChange={(e) => setSenderSide(e.target.value)}
-          >
-            <option value="outgoing">Right (Purple)</option>
-            <option value="incoming">Left (Gray)</option>
-          </select>
-        </div>
-
-        <button
-          onClick={() => setMessages([])}
-          style={{
-            width: '100%',
-            padding: '12px',
-            background: '#ef4444',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            marginTop: '10px'
-          }}
-        >
-          Clear Chat
-        </button>
       </div>
     </div>
   );

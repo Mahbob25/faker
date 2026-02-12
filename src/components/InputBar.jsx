@@ -35,11 +35,32 @@ const InputBar = ({ onSend }) => {
                     onChange={(e) => setText(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                 />
-                <div className="input-icons">
-                    <Mic size={22} strokeWidth={2.2} />
-                    <Image size={22} strokeWidth={2.2} />
-                    <Smile size={22} strokeWidth={2.2} />
-                    <Plus size={22} strokeWidth={2.5} />
+                <div className="input-icons" style={{ gap: text.trim() ? '8px' : '14px' }}>
+                    {!text.trim() && (
+                        <>
+                            <Mic size={22} strokeWidth={2.2} />
+                            <Image size={22} strokeWidth={2.2} />
+                            <Smile size={22} strokeWidth={2.2} />
+                        </>
+                    )}
+                    {text.trim() ? (
+                        <button
+                            onClick={handleSend}
+                            style={{
+                                background: 'transparent',
+                                border: 'none',
+                                color: '#0095f6',
+                                fontWeight: '700',
+                                fontSize: '16px',
+                                padding: '0 8px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            Send
+                        </button>
+                    ) : (
+                        <Plus size={22} strokeWidth={2.5} />
+                    )}
                 </div>
             </div>
         </div>
