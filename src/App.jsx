@@ -83,12 +83,14 @@ const App = () => {
   return (
     <div id="root">
       <div className="iphone-frame">
-        <StatusBar />
-        <Header
-          username={config.username}
-          subtitle={config.subtitle}
-          avatar={config.avatarUrl}
-        />
+        <div className="header-wrapper">
+          <StatusBar />
+          <Header
+            username={config.username}
+            subtitle={config.subtitle}
+            avatar={config.avatarUrl}
+          />
+        </div>
 
         <div className="chat-container" ref={chatRef}>
           {messages.map((msg) => (

@@ -54,22 +54,23 @@ body {
   }
 }
 
-/* Status Bar */
+/* Status Bar & Header Wrapper */
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: white;
+  width: 100%;
+}
+
 .status-bar {
-  height: var(--safe-area-top);
+  height: 44px;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
   font-size: 15px;
-  z-index: 10;
-}
-
-.status-bar .right {
-  display: flex;
-  gap: 5px;
-  align-items: center;
 }
 
 /* RTL Support */
@@ -80,10 +81,13 @@ body {
 .chat-container {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 10px 12px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  -webkit-overflow-scrolling: touch;
+  /* Smooth scroll on iOS */
 }
 
 /* Hide scrollbar for a cleaner look */
