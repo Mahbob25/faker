@@ -46,9 +46,9 @@ const Header = ({ username, subtitle, avatar }) => {
                 }}>{subtitle}</p>
             </div>
             <div style={{ display: 'flex', gap: '22px', alignItems: 'center', color: '#000' }}>
-                <Phone size={22} />
-                <Video size={25} />
-                <Flag size={22} />
+                <Phone size={22} strokeWidth={2.4} />
+                <Video size={25} strokeWidth={2.3} />
+                <Flag size={22} strokeWidth={2.3} />
             </div>
         </div>
     );

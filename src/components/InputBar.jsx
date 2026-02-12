@@ -24,7 +24,7 @@ const InputBar = ({ onSend }) => {
                 color: 'white',
                 flexShrink: 0
             }}>
-                <Camera size={18} fill="currentColor" />
+                <Camera size={20} fill="currentColor" strokeWidth={2.5} />
             </div>
 
             <div className="input-container">
@@ -36,10 +36,10 @@ const InputBar = ({ onSend }) => {
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                 />
                 <div className="input-icons">
-                    <Mic size={22} />
-                    <Image size={22} />
-                    <Smile size={22} />
-                    <Plus size={22} />
+                    <Mic size={22} strokeWidth={2.2} />
+                    <Image size={22} strokeWidth={2.2} />
+                    <Smile size={22} strokeWidth={2.2} />
+                    <Plus size={22} strokeWidth={2.5} />
                 </div>
             </div>
         </div>

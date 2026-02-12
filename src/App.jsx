@@ -4,33 +4,33 @@ import Header from './components/Header';
 import MessageBubble from './components/MessageBubble';
 import InputBar from './components/InputBar';
 
+
 /**
- * CONFIGURATION: Change these values to customize the simulator
+ * ==========================================
+ * SIMULATOR CONFIGURATION
+ * ==========================================
+ * Change these values to customize the chat.
+ * You can use local image paths or external URLs.
  */
 const DEFAULT_CONFIG = {
   username: 'a43_c',
-  subtitle: '🇾🇪Pride Yemeni👑...',
-  avatarUrl: 'https://i.pravatar.cc/150?u=a43_c', // Placeholder, user will replace
-  senderAvatarUrl: 'https://i.pravatar.cc/150?u=me',
+  subtitle: '🇾🇪˹͢⁽𝓟𝓻𝓲𝓭𝓮𝓨𝓮𝓶𝓮𝓷𝓲👑₎🇾🇪 ♝',
+  avatarUrl: '/assets/a43_c.jpg',
+  senderAvatarUrl: '/assets/a43_c.jpg',
 };
+/** ========================================== **/
 
 const App = () => {
   const [config, setConfig] = useState(DEFAULT_CONFIG);
 
   const [messages, setMessages] = useState([
-    {
-      id: 1,
-      type: 'incoming',
-      contentType: 'image',
-      imageUrl: '/src/assets/cats.jpg',
-      showAvatar: false,
-      isLastInGroup: true
-    },
-    { id: 2, type: 'system', text: 'اليوم ١٢:٣٨ ص', isDate: true },
-    { id: 3, type: 'incoming', text: 'كيفك يا حياتوووو', isRTL: true, showAvatar: true },
-    { id: 4, type: 'incoming', text: 'اووووووو', isRTL: true, showAvatar: false },
-    { id: 5, type: 'incoming', text: 'اخيراً قالها🎵', isRTL: true, showAvatar: false },
-    { id: 6, type: 'incoming', text: 'قال احبك قالها🎶🎶🎶🎶', isRTL: true, showAvatar: true, isLastInGroup: true },
+    { id: 12, type: 'system', text: 'Video call ended' },
+    { id: 6, type: 'incoming', text: 'حتى انا', isRTL: true, showAvatar: true, isLastInGroup: true },
+    { id: 7, type: 'outgoing', text: 'زعلانه', isRTL: true, isLastInGroup: true },
+    { id: 8, type: 'incoming', text: 'والله', isRTL: true, showAvatar: true, isLastInGroup: true },
+    { id: 9, type: 'outgoing', text: 'براضيها', isRTL: true, isLastInGroup: true },
+    { id: 11, type: 'outgoing', text: 'اووووووو', isRTL: true, replyTo: { sender: 'him', text: 'كيفك يا حياتوووو' } },
+
   ]);
 
   const [senderSide, setSenderSide] = useState('outgoing');
