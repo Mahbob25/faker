@@ -24,11 +24,6 @@ const App = () => {
   const [config, setConfig] = useState(DEFAULT_CONFIG);
 
   const [messages, setMessages] = useState([
-    { id: 12, type: 'system', text: 'Video call ended' },
-    { id: 6, type: 'incoming', text: 'حتى انا', isRTL: true, showAvatar: true, isLastInGroup: true },
-    { id: 7, type: 'outgoing', text: 'زعلانه', isRTL: true, isLastInGroup: true },
-    { id: 8, type: 'incoming', text: 'والله', isRTL: true, showAvatar: true, isLastInGroup: true },
-    { id: 9, type: 'outgoing', text: 'براضيها', isRTL: true, isLastInGroup: true },
     { id: 11, type: 'outgoing', text: 'اووووووو', isRTL: true, replyTo: { sender: 'him', text: 'كيفك يا حياتوووو' } },
 
   ]);
